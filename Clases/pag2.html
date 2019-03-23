@@ -1,0 +1,57 @@
+<html>
+
+<head>
+    <script>
+        //window hace referencia a la vetana del navegador
+        window.onload = carga;
+        /*function carga() {
+           var boton = document.getElementById("btn").onclick = validarUser;
+        }*/
+
+        function carga(){
+            var btn = document.getElementById("btn").addEventListener("click",this.validarUser);
+            document.getElementById("btn").removeEventListener("click",this.validarUser);
+            document.getElementById("btn").addEventListener("click", function(){alert("eeee")});
+        }
+
+
+
+
+        function validarUser() {
+            var userName = document.getElementById("usr");
+            var password = document.getElementById("pass");
+            if (userName.value == "abc" && password.value == "123") {
+                alert("User y pass correctos");
+            }
+            else
+                alert("No existe");
+
+
+
+        }
+
+
+    </script>
+</head>
+<form method="GET">
+    <fieldset>
+        <legend> Login</legend>
+        Usuario
+        <br/>
+        <input id="usr" type="text" value="" name="txtUser" size="20" maxlength="10" />
+        <br> Contraseña
+        <br/>
+        <input id="pass" type="password" name="txtPass" />
+        <br/>
+        <input type="checkbox" name="chkPass" checked/> Recordar contraseña
+        <br>
+        <input type="button" id="btn" value="Enviar"  />
+        <input type="button" value="Limpiar" />
+
+
+    </fieldset>
+
+</form>
+</body>
+
+</html>
