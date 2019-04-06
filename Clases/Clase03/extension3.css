@@ -1,0 +1,124 @@
+input[type = 'button']
+{
+    margin: 2px 0px 2px opx; 
+    padding: 0px 5px 0px;
+    color: white;
+    font-weight: bold;
+    
+    border-radius: 2px;
+    cursor: pointer;
+}
+
+input[type=text] {
+    width: 98%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    /* box - sizing: el borde y todo lo demas (padding por ejemplo) lo mete para adentro*/
+    box-sizing: border-box;
+    display: inline-block;
+    /*in block ocupan el 100% de la pantalla*/
+    /*in line ocupa la linea donde esta el elemento*/
+    border-radius: 4px;
+  }
+
+  /*div es un componente de tipo block*/
+.verde
+{
+    background-color: green;
+    width: 150px;
+    height: 50px;
+}
+.rojo
+{
+    background-color: red;
+    width: 150px;
+    height: 50px;
+}
+
+div { 
+    
+  /*  display: block;*/
+    margin-left: 2px;
+    margin-right: 500px;
+    padding-top: 0.35em;
+    padding-bottom: 0.625em;
+    padding-left: 0.75em;
+    padding-right: 0.75em;
+    border: 2px groove (internal value);
+    background-color: rgba(172, 164, 164, 0.445)
+   
+    
+  }
+
+  .contenedor
+  {
+      position: fixed; 
+      width:25%;
+      height: 55%;
+      bottom:0.256em;
+      right:20%;
+      border-radius: 5px;
+      background-color: rgb(194, 199, 186);
+      padding: 20px;
+      animation-name: aparecer;
+      animation-duration:3s;
+
+
+  }
+  
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  th {
+       background-color: #4CAF50;
+    color: white;
+    height: 35px;
+    text-align: left;
+  }
+
+ 
+
+  td {
+    height: 50px;
+    vertical-align: bottom;
+  }
+
+  tr:nth-child(even) {background-color: #f2f2f2;}
+
+  .sinError{
+      border: 1px solid greenyellow;
+  }
+  .connError{
+    border: 1px solid red;
+}
+
+/*moz- box-sizing */
+
+@keyframes aparecer{
+from {opacity: 0}
+to{opacity:  1}
+}
+
+@keyframes desaparecer{
+    from {opacity: 1}
+    to{opacity:  0;}
+    }
+
+.cerrar{
+    background-color: red;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0px;
+    border: none;
+    display: block;
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    border-radius: 4px;
+    cursor: pointer;
+    animation-name: desaparecer;
+    animation-duration: 3s;
+}
