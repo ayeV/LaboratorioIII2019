@@ -1,0 +1,40 @@
+<html>
+    
+    <head>
+            <meta charset="UTF-8">
+      <!--  <script src="./pag3.js"></script>
+        <link rel="stylesheet" type="text/css" href="./extension3.css"> -->
+     <script> 
+     var xml = new XMLHttpRequest();
+     //la funcion callback se ejecuta cuando el servidor lo decida
+     xml.onreadystatechange = callback;
+     xml.open("GET","http://localhost:3000/login",true);
+   
+
+     xml.send();
+    console.log("Se ejecuto send");
+
+     function callback()
+     {//si status me devuelve 200 => el servidor no tiro ningun error
+
+        if(xml.readyState == 4)
+         {
+             if(xml.status == 200)
+                 console.log("LLego rta del servidor",xml.readyState,xml.status,xml.responseText);
+            else
+                alert("Error en el servidor " + xml.status);
+
+         }
+         
+        
+     }
+     </script>
+    </head>
+ 
+    </body>
+    
+    
+    
+    
+    
+    </html>

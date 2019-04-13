@@ -55,8 +55,8 @@ div {
       position: fixed; 
       width:25%;
       height: 55%;
-      bottom:0.256em;
-      right:20%;
+      bottom: 50%;
+      right:50%;
       border-radius: 5px;
       background-color: rgb(194, 199, 186);
       padding: 20px;
@@ -114,7 +114,7 @@ to{opacity:  1}
     margin: 8px 0px;
     border: none;
     display: block;
-    position: absolute;
+    position: relative;
     right: 5px;
     top: 5px;
     border-radius: 4px;
