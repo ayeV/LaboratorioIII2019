@@ -1,6 +1,6 @@
 var httpReq = new XMLHttpRequest();
 
-function carga() {
+function events() {
     var btnLoad = document.getElementById("btnLoad").addEventListener("click", cargarPersona);
    
 }
@@ -16,7 +16,6 @@ function callback()
             rta = JSON.parse(httpReq.response);
           if(rta.autenticado == "si")  
           {
-              debugger;
               var color = rta.preferencias.color;
               var font = rta.preferencias.font;
               var email = document.getElementById("email").value;
@@ -48,7 +47,7 @@ else
         password : password
     }
 ajax("POST","http://localhost:1337/login",JSON.stringify(datosLogin),true)
-   //window.location.replace("file:///C:/Users/alumno/Desktop/LaboratorioIII2019-master/Clases/Clase05PP/index.html");
+  
 }
     
     
@@ -70,13 +69,7 @@ function ajax(metodo,url,parametros,tipo){
     }
 }  
 
-function pedirPersonasGet(){
-    
-        ajax("POST","http://localhost:1337/login","",true);
-    
-
-}
 
 
 
-window.onload = carga;
+window.onload = events;

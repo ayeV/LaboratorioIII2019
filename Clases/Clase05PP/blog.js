@@ -1,3 +1,14 @@
+var httpReq = new XMLHttpRequest();
+window.addEventListener("load", events);
+function events()
+{
+    var btnPost = document.getElementById("btnPost").addEventListener("click", loadPost);
+    var btnNewPost =document.getElementById("btnNewPost").addEventListener("click", newPost);
+    var btnClose =document.getElementById("btnClose").addEventListener("click", close);
+
+}
+
+
 function getParameterByName(name, url) {
     if (!url) url = window.location.href;
     name = name.replace(/[\[\]]/g, "\\$&");
@@ -8,83 +19,70 @@ function getParameterByName(name, url) {
     return decodeURIComponent(results[2].replace(/\+/g, " "));
 }   
 
-
-var httpReq = new XMLHttpRequest();
-
-function carga() {
-    var btnPost = document.getElementById("btnPost").addEventListener("click", cargarPost);
-   
-}
-
-
-function callback()
+function callback() 
 {
+   var spinner = document.getElementById("spinner");
+   var background = document.getElementById("background");
    if(httpReq.readyState == 4)
-    {
-        if(httpReq.status == 200)
-        {
-            console.log("LLego rta del servidor",httpReq.readyState,httpReq.status,httpReq.responseText);
-            rta = JSON.parse(httpReq.response);
-          if(rta.autenticado == "si")  
-          {
-              
-           // getParameterByName()
-          }
-        }
-
+   {
+       if(httpReq.status == 200)
+       {
+           var rta = JSON.parse(httpReq.response);
+           var posts = document.getElementById("divPosts");
+           posts.innerHTML += "<h1>"+rta.title+"</h1>" + "<p>"+rta.posttext+"</p>" + "<p>"+rta.header+"</p>" + "<p>Posted by:"+rta.author+"</p>"
+           spinner.hidden = true;
+           background.hidden = true;
+       }
        else
-           alert("Error en el servidor " + httpReq.status);
-    }
-    
-   
+       {
+           spinner.hidden = false;
+           background.hidden = false;
+       }
+   }
 }
 
-
-function cargarPost()
+function loadPost()
 {
+    httpReq.onreadystatechange = callback;
+    httpReq.open("POST","http://localhost:1337/postearNuevaEntrada",true);
+    httpReq.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     var title = document.getElementById("pTitle").value;
     var header = document.getElementById("pHeader").value;
     var text = document.getElementById("pText").value;
-    var author = getParameterByName("email","http://localhost:1337/index");
-    
-if(title == "" || header =="" || text == "")
-{
-    alert("Ingrese todos los campos");
-    return;
-}
-else
-{
-    var datosPost = {
-        "title":  title,
-        "header" : header,
-        "posttext": text,
-        "author":autor
-    }
-ajax("POST","http://localhost:1337/index",JSON.stringify(datosPost),true)
-}
-    
-    
-}
-
-
-function ajax(metodo,url,parametros,tipo){  
-    httpReq.onreadystatechange = callback;
-
-    if(metodo === "GET"){
+    var author = getParameterByName("email","http://localhost:1337/login");//no anda 
+    var spinner = document.getElementById("spinner");
+    var background = document.getElementById("background");
+    if(title != "" && header != "" && text != "")
+    {
+        var datosPost = 
+        {
+            "title":title,
+            "header":header,
+            "posttext":text,
+            "author": author
+        }
+        httpReq.send(JSON.stringify(datosPost));
+        spinner.hidden = false;
+        background.hidden = false;
+        close();
         
-        httpReq.open("GET", url, tipo); //abre la conexión con el servidor
-        httpReq.send();
     }
-    else{
-        httpReq.open("POST", url, tipo); //abre la conexión con el servidor
-        httpReq.setRequestHeader("Content-Type","application/x-www-form-urlencoded"); //string
-        httpReq.send(parametros);
-    }
-}  
+    else
+    alert("Debe ingresar todos los campos para poder crear un nuevo post");
 
+}
 
+function newPost(){
+    var title = document.getElementById("pTitle").value = "";
+    var header = document.getElementById("pHeader").value = "";
+    var text = document.getElementById("pText").value = "";
+	document.getElementById("btnNewPost").hidden = true;
+	document.getElementById("divNewPost").hidden = false;
+}
 
-
-
-window.onload = carga;
-
+function close(){
+    
+        document.getElementById("btnNewPost").hidden = false;
+        document.getElementById("divNewPost").hidden = true;
+    
+}

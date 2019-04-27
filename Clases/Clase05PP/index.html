@@ -10,19 +10,31 @@
 
 </head>
 <body>
-    <div id="divBlog" class="blog">
+        <header>
+                <input id="btnNewPost" type="button" value="New Post" class="btnPepe"><br>
+            </header>
+            <main>
+    <div id="divNewPost" class="blog" hidden>
+            <input id="btnClose" class="rojo" type="button" value="X"><br>
+
         <h2> Write your new post</h2>
         <br>
+
         <label class="labelText">Post title</label><br/>
         <input type="text" class="inputText" id="pTitle"><br/>
         <label class="labelText">Post Header</label><br/>
         <input type="text" class="inputText" id="pHeader"><br/>
         <label class="labelText">Post Text</label><br/>
         <input type="text" class="inputText" id="pText"><br/>
-        <input type="button" id="btnPost" value="Post" class="btnPost" > 
+        <input type="button" id="btnPost" value="Post" class="btn" > 
        
     </div>
- 
+</div>
+<div id="divPosts"></div>
+<div id="background" class="background" hidden>
+    <div id="spinner" class="loader" hidden></div>
+</div>
+</main>
     
 </body>
 </html>
