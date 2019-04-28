@@ -29,7 +29,7 @@ function callback()
        {
            var rta = JSON.parse(httpReq.response);
            var posts = document.getElementById("divPosts");
-           posts.innerHTML += "<h1>"+rta.title+"</h1>" + "<p>"+rta.posttext+"</p>" + "<p>"+rta.header+"</p>" + "<p>Posted by:"+rta.author+"</p>"
+           posts.innerHTML += "<h1>"+rta.title+"</h1>" + "<p>"+rta.posttext+"</p>" + "<p>"+rta.header+"</p>" + "<p>Posted by:"+rta.author+"</p>"+"<p>"+rta.date+"</p>"
            spinner.hidden = true;
            background.hidden = true;
        }
@@ -49,7 +49,7 @@ function loadPost()
     var title = document.getElementById("pTitle").value;
     var header = document.getElementById("pHeader").value;
     var text = document.getElementById("pText").value;
-    var author = getParameterByName("email","http://localhost:1337/login");//no anda 
+    var author = getParameterByName("email",window.location);
     var spinner = document.getElementById("spinner");
     var background = document.getElementById("background");
     if(title != "" && header != "" && text != "")
