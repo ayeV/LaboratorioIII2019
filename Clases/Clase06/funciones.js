@@ -12,7 +12,7 @@ function events() {
 function callback() {
     if (httpReq.readyState == 4) {
         if (httpReq.status == 200) {
-           
+
             //httpReq.send(JSON.stringify(personas));
             loadList();
 
@@ -22,86 +22,89 @@ function callback() {
 }
 
 function loadList() {
-    //var personas = JSON.parse(localStorage.getItem("personas"));
-    var personas = JSON.parse(httpReq.response);
-    var count =personas.length;
+    var personas = JSON.parse(localStorage.getItem("personas")); //esto en mi casa funciona, en la fac no.
+    //var personas = JSON.parse(httpReq.response); //en mi casa no funciona, en la facultad si
+    //var count = personas.length;
+var count = Object.keys(personas).length;
+    //var table = "";
+    /*  for (i = 0; i < count; i++) {
+          table += "<tr><td>" + personas[i].nombre + "</td>\
+          <td>" + personas[i].apellido + "</td>\
+          <td>" + personas[i].telefono + "</td>\
+          <td>" + personas[i].fecha + "</td>\
+          <td><a onclick='deletePerson("+ i + ",event)' href='#'>Borrar</a></td></tr>";
+  
+      }
+      document.getElementById("tablaResultados").innerHTML = table;*/
+    var tbody = document.getElementById("tablaResultados");
+    for (var i = 0; i < count; i++) {
+        var nTr = document.createElement("tr");
 
-    var table = "";
-  /*  for (i = 0; i < count; i++) {
-        table += "<tr><td>" + personas[i].nombre + "</td>\
-        <td>" + personas[i].apellido + "</td>\
-        <td>" + personas[i].telefono + "</td>\
-        <td>" + personas[i].fecha + "</td>\
-        <td><a onclick='deletePerson("+ i + ",event)' href='#'>Borrar</a></td></tr>";
+        var nTdNombre = document.createElement("td");
+        var nTdApellido = document.createElement("td");
+        var nTdTelefono = document.createElement("td");
+        var nTdFecha = document.createElement("td");
+        var nTdAction = document.createElement("td");
+        var nTdActionM = document.createElement("td");
+        var actionModified = document.createElement("a");
+        var txtModified = texto = document.createTextNode("modificar");
+        var actionDelete = document.createElement("a");
+        var txtDelete = texto = document.createTextNode("borrar");
+        nTr.appendChild(nTdNombre);
+        nTr.appendChild(nTdApellido);
+        nTr.appendChild(nTdTelefono);
+        nTr.appendChild(nTdFecha);
+        nTr.appendChild(nTdAction);
+        nTr.appendChild(nTdActionM);
+        var txtNombre = texto = document.createTextNode(personas[i].nombre);
+        var txtApellido = texto = document.createTextNode(personas[i].apellido);
+        var txtTelefono = texto = document.createTextNode(personas[i].telefono);
+        var txtFecha = texto = document.createTextNode(personas[i].fecha);
+        nTdNombre.appendChild(txtNombre);
+        nTdApellido.appendChild(txtApellido);
+        nTdFecha.appendChild(txtFecha);
+        nTdTelefono.appendChild(txtTelefono);
+        nTdAction.appendChild(actionDelete);
+        nTdActionM.appendChild(actionModified);
+        actionDelete.appendChild(txtDelete);
+        actionDelete.setAttribute("href", '');
+        actionDelete.addEventListener("click", function(){deletePerson(i,event)});
+        actionModified.appendChild(txtModified);
+        actionModified.setAttribute("href", '');
+        actionModified.addEventListener("click", editar);
+        
+        tbody.appendChild(nTr);
 
     }
-    document.getElementById("tablaResultados").innerHTML = table;*/
-   var tbody = document.getElementById("tablaResultados");
-   for(var i=0;i<count;i++)
-   {
-  
-    var nTr=document.createElement("tr");
 
-    var nTdNombre = document.createElement("td");
-    var nTdApellido = document.createElement("td");
-    var nTdTelefono = document.createElement("td");
-    var nTdFecha = document.createElement("td");
-    var nTdAction = document.createElement("td");
-    var actionDelete = document.createElement("a");
-    var txtDelete = texto=document.createTextNode("borrar");
-    nTr.appendChild(nTdNombre);
-    nTr.appendChild(nTdApellido);
-    nTr.appendChild(nTdTelefono);
-    nTr.appendChild(nTdFecha);
-    nTr.appendChild(nTdAction);
-    var txtNombre = texto=document.createTextNode(personas[i].nombre);
-    var txtApellido = texto=document.createTextNode(personas[i].apellido);
-    var txtTelefono = texto=document.createTextNode(personas[i].telefono);
-    var txtFecha = texto=document.createTextNode(personas[i].fecha);
-    nTdNombre.appendChild(txtNombre);
-    nTdApellido.appendChild(txtApellido);
-    nTdFecha.appendChild(txtFecha);
-    nTdTelefono.appendChild(txtTelefono);
-    nTdAction.appendChild(actionDelete);
-    actionDelete.appendChild(txtDelete);
-    actionDelete.setAttribute("href",'');
-    actionDelete.addEventListener("click",borrar);    
-    tbody.appendChild(nTr);
-
-   }
-  
-    
-}   
-
-function loadList2(){
-    var personas = JSON.parse(httpReq.response);
-    var count = personas.length;
-
-    
- 
-   var tbody = document.getElementById("tablaResultados");
-   for(var i=0;i<count;i++)
-   {
-    var nTr=document.createElement("tr");
-    var columns = Object.keys(personas[i]);
-    var obj = personas[i];
-    for(var j= 0 ;j<columns.length;j++){
-        var cel = document.createElement("td");
-        var text = document.createTextNode(obj[columns[j]]);
-        cel.appendChild(text);
-        nTr.appendChild(cel);
-
-    }
-    var cel = document.createElement("td");
-    var link = document.createTextNode("a");
-    var text = document.createTextNode("borrar");
-    link.setAttribute("href","#");
-    link.addEventListener("click", deletePerson);
-    cel.appendChild(link);
-    nTr.appendChild(cel);
-    link.appendChild(text);
 
 }
+
+function loadList2() {
+    var personas = JSON.parse(httpReq.response);
+    var count = personas.length;
+    var tbody = document.getElementById("tablaResultados");
+    for (var i = 0; i < count; i++) {
+        var nTr = document.createElement("tr");
+        var columns = Object.keys(personas[i]);
+        var obj = personas[i];
+        for (var j = 0; j < columns.length; j++) {
+            var cel = document.createElement("td");
+            var text = document.createTextNode(obj[columns[j]]);
+            cel.appendChild(text);
+            nTr.appendChild(cel);
+
+        }
+        var cel = document.createElement("td");
+        var link = document.createTextNode("a");
+        var text = document.createTextNode("borrar");
+        link.setAttribute("href", "#");
+        link.addEventListener("click", deletePerson);
+        cel.appendChild(link);
+        nTr.appendChild(cel);
+        link.appendChild(text);
+
+    }
 }
 
 
@@ -157,29 +160,57 @@ function loadPerson() {
         var personaStr = '{"nombre":"' + nombre + '","apellido":"' + apellido + '","telefono":"' + telefono + '","fecha":"' + fecha + '"}'
         var personaObj = JSON.parse(personaStr);
         personas.push(personaObj);
-        localStorage.setItem("personas",JSON.stringify(personas));
+        localStorage.setItem("personas", JSON.stringify(personas));
         loadList();
     }
 
 }
 
 
-function deletePerson(indicePersona,event){
-   // debugger;
+function deletePerson(indicePersona, event) {
+     debugger;
     event.preventDefault();
-  //  var personas = JSON.parse(localStorage.getItem("personas"));
-   var personas = JSON.parse(httpReq.response);
-    personas.splice(indicePersona,1);
-    //localStorage.setItem("personas",JSON.stringify(personas));
+      var personas = JSON.parse(localStorage.getItem("personas"));
+    //var personas = JSON.parse(httpReq.response);
+    personas.splice(indicePersona, 1);
+    localStorage.setItem("personas",JSON.stringify(personas));
+   
+    var targ = event.target;
+    var tr = targ.parentNode.parentNode;
+    var body = tr.parentNode;
+    body.removeChild(tr); 
     loadList();
 }
 
 
-function borrar(event){
-event.preventDefault();
- var targ = event.target;
-//target devuelve el compponente que lanzo ese evento
-var tr = targ.parentNode.parentNode;
-var body= tr.parentNode;
-body.removeChild(tr);
+function borrar(event) {
+    event.preventDefault();
+    var targ = event.target;
+    //target devuelve el compponente que lanzo ese evento
+    var tr = targ.parentNode.parentNode;
+    var body = tr.parentNode;
+    body.removeChild(tr);
+   // var personas = JSON.parse(httpReq.response);
+/*    var personas = JSON.parse(localStorage.getItem("personas"));
+
+    personas.splice(, 1);
+    localStorage.setItem("personas",JSON.stringify(personas));*/
+}
+
+function modificar(indicePersona,event)
+{
+    event.preventDefault();
+  /*  var personas = JSON.parse(localStorage.getItem("personas"));
+    personas.splice(indicePersona, 1);*/
+
+}
+
+
+function editar(i){
+    var personas = JSON.parse(localStorage.getItem("personas"))[i];
+    document.getElementById("nombre").value = personas.nombre;
+    document.getElementById("apellido").value = personas.apellido;
+    document.getElementById("telefono").value = personas.telefono;
+    document.getElementById("fecha").value = personas.fecha;
+    document.getElementById("divCargarPersona").className = "cargarPersona cargarPersonaVisible";
 }
