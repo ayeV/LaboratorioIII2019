@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>JSON</title>
+    <script src="./js/funciones.js" type="text/javascript"></script>
+    <script src="./node_modules/jquery/dist/jquery.min.js" type="text/javascript"></script>
+
+    <link rel="stylesheet" type="text/css" href="./css/extension.css">
+
+</head>
+
+<body>
+    <div id="divCargarPersona" class="cargarPersona cargarPersonaOculto">
+            <input type="button" id="btnCerrar" value="X" class="botonCerrar">
+            <input type="hidden" id="id"  width="50px"/>
+        <label class="labelText">Nombre</label>
+        <input type="text" class="sinError" id="nombre" ><br />
+        <label class="labelText">Cuatrimestre</label>
+        <select id= "cuatrimestre"><br />
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        </select><br />
+        <label class="labelText">Turno</label>
+
+        <input type="radio" id="turnom" value="Mañana" name="turno"> Mañana
+        <input type="radio" id="turnon" value="Noche" name="turno"> Noche<br>
+        <label class="labelText">Fecha Final</label>
+        <input type="date" class="sinError" id="fecha"><br />
+        <input type="button" id="btnDelete" value="Eliminar" class="btnCargar">
+        <input type="button" id="btnEdit" value="Editar" class="btnEdit">
+
+
+    </div>
+  <!--  <input type="button" id="mostrar" value="Nueva materia" class="boton">-->
+    <table>
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Cuatrimestre</th>
+                <th>Fecha Final</th>
+                <th>Turno</th>
+                <th hidden>id</th>
+
+
+            </tr>
+        </thead>
+        <tbody id="tablaResultados" >
+        </tbody>
+    </table>
+  
+    <div id="background" class="background" hidden>
+        <div id="spinner" class="loader" hidden></div>
+    </div>
+</body>
+
+</html>

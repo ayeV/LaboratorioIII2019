@@ -1,0 +1,111 @@
+
+
+
+body{
+    margin: 0;
+}
+
+.cargarPersona{
+    margin: auto;
+    background-color: white;
+    border: 3px solid rgb(65, 207, 100);
+    box-shadow: 5px 5px grey;
+    text-align: center;
+    width: 300px;
+    position: fixed;
+    left: 25%;
+    top: 25%;
+    padding: 10px;
+}
+
+.cargarPersonaOculto{
+    visibility: hidden;
+}
+
+.cargarPersonaVisible{
+    visibility: visible;
+}
+
+.labelText{
+    font-weight: bold;
+}
+
+.inputText{
+    margin: 5px;
+}
+
+.btnCargar{
+    margin: 10px;
+    width: 80px;
+    background-color: red;
+}
+
+.btnEdit{
+    margin: 10px;
+    width: 80px;
+    background-color: greenyellow;
+}
+
+table{
+    border-collapse: collapse;
+    width: 100%;
+    vertical-align: middle;
+    border-color: rgb(32, 159, 209);
+    top: 50px;
+}
+
+td{            
+    padding: 15px;
+}
+
+th{
+    font-size: 24px;
+    font-family: Arial, Helvetica, sans-serif;
+    height: 30px;
+    background-color: rgba(38, 207, 212, 0.808);
+    color:rgb(20, 22, 22);
+    border-color: rgb(240, 238, 238);
+    text-align: left;
+    padding: 10px;
+}
+
+tr:nth-child(even) {
+    background-color: #31b0eb;
+    border-color: #f2f2f2;
+}
+
+tr:hover {
+    background-color:rgb(194, 187, 187);
+    border-color: rgb(201, 191, 191);
+}
+
+
+.boton{
+    display: block;
+    left: 0;
+    background-color: rgb(34, 185, 185);
+    height: 50px; 
+    width: 170px;
+    font-weight: bold;
+    color: white;
+    border: 0px;
+}
+
+.boton:hover{
+    background-color: rgb(10, 177, 228);
+    color: rgb(173, 41, 212);
+}
+ 
+.botonCerrar{
+    background-color: red;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    position: absolute;
+    right: 5px;
+    top: 5px ;
+    border-radius: 5px;
+    color:white;
+    border:none;
+    
+}
