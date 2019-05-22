@@ -3,6 +3,25 @@
 
 window.onload = events;
 //$(document).ready(events);
+/*$(document).ready(function(){
+      $("#btnDelete").on("click", eliminar);
+    $("#btnEdit").on("click", modificar);
+    $("#btnCerrar").on("click", showAddPerson);
+    var $loading = $('#spinner').hide();
+    var $background = $('#background').hide();
+    $(document)
+        .ajaxStart(function () {
+            $loading.show();
+            $background.show();
+
+        })
+        .ajaxStop(function () {
+            $loading.hide();
+            $background.hide();
+
+        });
+    pedirMateriasGet();
+}*/
 function events() {
     $("#btnDelete").on("click", eliminar);
     $("#btnEdit").on("click", modificar);
