@@ -2,6 +2,12 @@
 //Shift+alt+f dar formato al documento
 
 window.onload = events;
+/*$(document).ready(function(){
+var btnDelete = document.getElementById("btnDelete").addEventListener("click", eliminar);
+   var btnEdit = document.getElementById("btnEdit").addEventListener("click", modificar);
+    var btnCerrar = document.getElementById("btnCerrar").addEventListener("click", showAddPerson);
+    pedirMateriasGet();
+}*/
 httpReq = new XMLHttpRequest();
 function events() {
     var btnDelete = document.getElementById("btnDelete").addEventListener("click", eliminar);
