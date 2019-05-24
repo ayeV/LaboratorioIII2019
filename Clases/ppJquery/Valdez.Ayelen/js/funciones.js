@@ -1,10 +1,9 @@
 
 //Shift+alt+f dar formato al documento
 
-window.onload = events;
-//$(document).ready(events);
-/*$(document).ready(function(){
-      $("#btnDelete").on("click", eliminar);
+//window.onload = events;
+$(document).ready(function () {
+    $("#btnDelete").on("click", eliminar);
     $("#btnEdit").on("click", modificar);
     $("#btnCerrar").on("click", showAddPerson);
     var $loading = $('#spinner').hide();
@@ -21,7 +20,7 @@ window.onload = events;
 
         });
     pedirMateriasGet();
-}*/
+});
 function events() {
     $("#btnDelete").on("click", eliminar);
     $("#btnEdit").on("click", modificar);
@@ -80,8 +79,7 @@ function loadList(materias) {
         nTr.addEventListener("dblclick", function (e) {
 
             $("#nombre").val(e.currentTarget.cells[0].innerText);
-            var selector = $("#cuatrimestre").val();
-            selector.selectedIndex = e.currentTarget.cells[1].innerText - 1;
+            $("#cuatrimestre").val(e.currentTarget.cells[1].innerText);
             $('#cuatrimestre').prop('disabled', true);
 
 
@@ -100,8 +98,8 @@ function loadList(materias) {
             console.log(date.toISOString().slice(0, 10));
             $("#fecha").val(date.toISOString().slice(0, 10));
 
+
             $("#id").val(e.currentTarget.cells[4].innerText);
-            //  document.getElementById("divCargarPersona").className = "cargarPersona cargarPersonaVisible";
             $("#divCargarPersona").toggleClass("cargarPersona cargarPersonaOculto cargarPersona cargarPersonaVisible");
 
 
@@ -114,13 +112,21 @@ function loadList(materias) {
 
 }
 
+
+
+
+
 function eliminar() {
     var idMateria = $("#id").val();
     var obj = { id: idMateria }
     $.post("http://localhost:3000/eliminar", obj,
         function (data, status) {
-            if (data.type == 'ok')
-                alert("Data: " + data + "\nStatus: " + status);
+            if (data.type == 'ok'){
+                var row =  document.getElementById(idMateria);
+                row.parentNode.removeChild(row);
+                console.log(status);
+            }
+               // alert("Data: " + data + "\nStatus: " + status);
         });
 
 
@@ -147,8 +153,11 @@ function modificar() {
         var obj = { id: idMateria, nombre: nombre, cuatrimestre: cuatrimestre, turno: turno, fechaFinal: format };
         $.post("http://localhost:3000/editar", obj,
             function (data, status) {
-                if (data.type == 'ok')
+                if (data.type == 'ok'){
                     setearCampos();
+                    console.log(status);
+
+                }
             });
 
         showAddPerson();
@@ -160,11 +169,16 @@ function modificar() {
 
 function setearCampos() {
 
-    var idMateria = document.getElementById("id").value;
+    // var idMateria = document.getElementById("id").value;
+    var idMateria = $("#id").val();
     var row = document.getElementById(idMateria);
     var tds = row.childNodes;
     tds[0].innerText = $("#nombre").val();
-    tds[1].innerText = document.getElementById("cuatrimestre").value;
+    //tds[1].innerText = document.getElementById("cuatrimestre").value;
+    // tds[1].innerText = $("#cuatrimestre").val();
+    debugger;
+    $('#cuatrimestre').val(tds[1].innerText);
+
     var format = document.getElementById("fecha").value.split("-");
     format = format[2] + "/" + format[1] + "/" + format[0];
     tds[2].innerText = format;
@@ -183,7 +197,6 @@ function setearCampos() {
 }
 
 function validaciones() {
-    debugger;
     var nombre = $("#nombre").val();
     var fecha = $("#fecha").val();
 
