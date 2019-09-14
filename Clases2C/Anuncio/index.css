@@ -1,0 +1,43 @@
+textarea {
+    resize: none;
+ }
+
+ button{
+     color:white;
+     border: 2px;
+     background-color: red;
+     width: 100px;
+     height: 50px;
+     margin: auto;
+     font-size: 15px;
+ }
+
+ fieldset{
+     width: 200px;
+     height: 50px;
+     position: relative;
+ }
+
+ label{
+     font-size: 15px;
+     font-style: inherit;
+ }
+
+ .titulo{
+     width: 300px;
+ }
+
+ .descripcion{
+    width: 300px;
+
+ }
+
+ .anuncio{
+    margin:0 auto;
+    background-color: lemonchiffon;
+    border: 2px solid black;
+    
+    max-width: 100%;
+    display: block;
+    
+ }

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./index.css">
+    <script src="./index.js"></script>
+    <script src="./anuncio.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <form>
+
+        <div class="anuncio">
+            <label for="txtTitulo">Titulo</label>
+            <br>
+            <input class="titulo" type="text" name="titulo" id="txtTitulo">
+            <br>
+            <label for="txtDescripcion">Descripcion</label>
+            <br>
+            <textarea class="descripcion" name="descripcion" id="txtDescripcion" cols="30" rows="10"></textarea>
+            <fieldset id="ventaOAlquiler">
+                <legend>Elige si es venta o alquiler</legend>
+                <label>
+                    <input type="radio" name="ventaOAlquiler" value="venta"> Venta
+                </label>
+                <label>
+                    <input type="radio" name="ventaOAlquiler" value="alquiler"> Alquiler
+                </label>
+            </fieldset>
+            <br>
+            <label for="txtPrecio">Precio</label>
+            <br>
+            <input type="number" name="precio" step="0.01" id="txtPrecio">
+           <br>
+            <label for="txtDormitorio">Cantidad de dormitorios</label>
+            <br>
+            <input type="number" name="dormitorio" id="txtDormitorio">
+            <br>
+            <label for="txtBaño">Cant baños</label>
+            <br>
+            <input type="number" name="baño" id="txtBaño">
+            <br>
+            <label for="txtGarage">Cant garages</label>
+            <br>
+            <input type="number" name="garage" id="txtGarage">
+            <br>
+            <button id="btnEnviar" type="submit">Enviar</button>
+            
+        </div>
+
+    </form>
+
+
+</body>
+
+</html>

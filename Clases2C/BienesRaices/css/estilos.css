@@ -1,0 +1,182 @@
+/*Selector de etiqueta*/
+
+/*tecnologia flex*/
+
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+body{
+    line-height: 2;
+    font-family: 'Lato',sans-serif;
+    
+}
+
+.site-header{
+    background:url(../img/header.jpg);
+    /*Altura del header sera igual al 100% de la altura de la pantalla*/
+    height: 100vh;
+    background-position: center center;
+    background-size: cover;
+}
+
+.contenido-header{
+    /*Ocupa el 100% del padre (en este caso el div)*/
+    height: 100%;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+
+.barra{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem;
+
+}
+
+.site-header h1{
+    color: white; 
+    padding-bottom: 30px;
+    max-width: 600px;
+    
+}
+
+
+
+/*Afecta a todos los enlaces que esten adentro de la clase navegacion*/
+ .navegacion a{
+    text-decoration: none;
+    color:white;
+    margin-right: 10px;
+ }
+
+ .navegacion a:last-of-type{
+     margin: 0;
+ }
+
+ .navegacion a:hover{
+     color: darkgreen;
+ }
+ .contenedor{
+     max-width: 1200px;
+     margin:0 auto;
+
+ }
+
+ h1:hover{
+     color:darkgreen;
+ }
+
+ .contenedor-iconos{
+    display: flex;
+
+ }
+
+ .icono{
+  flex-basis:calc(33.3% - 10px);
+  text-align: center;
+  padding-left: 10px;
+  padding-right: 10px;
+ }
+/*Los h3 que estan dentro de la clase icono*/
+ .icono h3{
+     text-transform: uppercase;
+     font-size: 32px;
+ }
+
+ .icono h3, icono p{
+     padding-top: 0;
+     padding-bottom: 0;
+ }
+
+ .icono p{
+     margin-bottom: 30px;
+ }
+
+ .titulo-nosotros{
+     text-align: center;
+     font-size: 24px;
+     font-weight: 300;
+
+ }
+
+.contenedor-anuncios{
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.contenedor-anuncios img{
+    width: 100%;
+}
+
+.anuncio{
+    flex-basis: calc(33.3%-10px);
+    border : 1px solid grey;
+    background-color: #f5f5f5;
+}
+
+.anuncio a{
+    margin:0 auto;
+}
+
+
+.contenido-anuncio{
+    padding: 25px 20px;
+   
+}
+.contenido-anuncio h3{
+ font-size: 32px;
+ margin-top: 5px;
+ margin-bottom: 5px;
+}
+
+.precio{
+    color:#71b100;
+}
+
+
+.boton{
+    text-decoration: none;
+    padding: 18px 32px;
+    color: white;
+    font-size: 20px;
+    width: 300px;
+    text-align: center;
+    /*block ocupa todo el ancho del contenedor*/
+    display: block;
+}
+
+.boton-naranja{
+background-color: #e08709;
+}
+
+.boton-verde{
+    background-color: greenyellow;
+    }
+
+.comodidades{
+    display: flex;
+    list-style: none;
+    justify-content: space-around;
+    flex: 1;
+}
+
+.comodidades li{
+    display: flex;
+
+}
+
+.comodidades li img{
+margin-right: 20px;
+}
+
+.contenedor-ver-todas{
+    display: flex;
+    justify-content: flex-end;
+    
+}

@@ -1,0 +1,97 @@
+<<!DOCTYPE html>
+    <html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+        <link rel="stylesheet" href="./css/normalize.css">
+        <link rel="stylesheet" href="./css/estilos.css">
+    <script src="./js/script.js"></script>
+    </head>
+
+    <body>
+        <h1>titulo</h1>
+        <form action="./pag2.html" method="GET">
+            <fieldset>
+                <legend>Datos personales</legend>
+                <div>
+                    <label for="txtNombre">Nombre:</label>
+                    <input type="text" id="txtNombre" name="nombre" required>
+                </div>
+                <div>
+                    <label for="txtClave">Clave::</label>
+                    <input type="password" id="txtClave" name="clave" required title="Password" placeholder="Ingrese clave">
+                </div>
+                <div>
+                    <label for="txtEmail">Email:</label>
+                    <input type="email" id="txtEmail" name="email" required>
+                </div>
+
+                <div>
+                    <label for="txtEdad">Edad:</label>
+                    <input type="text" id="txtEdad" name="edad" value="23" readonly>
+                </div>
+
+                <div>
+                    <label for="txtEdad1">Edad:</label>
+                    <input type="number" id="txtEdad1" name="edad" min="18" max="65">
+                </div>
+                <div>
+
+                    <label for="cboPais">pais</label>
+                    <select name="pais" id="cboPais" multiple>
+                        <optgroup label="America">
+                            <option value="Argentina">Argentina</option>
+                            <option value="Brasil">Brasil</option>
+                            <option value="Chile">Chile</option>
+                        </optgroup>
+                        <optgroup label="Europa">
+                            <option value="UK" selected>UK</option>
+                        </optgroup>
+
+                    </select>
+
+                </div>
+                <input type="hidden" name="">
+
+                <fieldset>
+                    <legend>Genero</legend>
+                    <input type="radio" name="sexo" id="rdoMasculino">
+                    <label for="rdoMasculino">Masculino</label>
+                    <input type="radio" name="sexo" id="rdoFemenino" checked>
+                    <label for="rdoFemenino">Femenino</label>
+
+                </fieldset>
+
+                <fieldset>
+                    <legend>Hobbies</legend>
+                    <input type="checkbox" id="chkEsqui">
+                    <label for="chkEsqui">Esqui</label>
+                    <input type="checkbox" id="chkPolo" checked>
+                    <label for="chkPolo">Polo</label>
+
+                </fieldset>
+                <label for="taComentarios">Comentarios</label>
+                <div>
+                    <textarea name="" id="taComentarios" cols="30" rows="10"></textarea>
+                </div>
+                <input type="submit">
+                <input type="reset">
+
+            </fieldset>
+
+
+
+        </form>
+        <button id="btnSaludar">Saludar</button>
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cum sunt dolor hic autem consequuntur optio reiciendis recusandae pariatur tempora, quia rem assumenda eos, nostrum sit sed ut voluptatum qui nobis!</p>
+        <p id="miparrafo" class="azul">Lorem sdgsgegegreg   </p>
+        <p class="rojos" >Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cum sunt dolor hic autem consequuntur optio reiciendis recusandae pariatur tempora, quia rem assumenda eos, nostrum sit sed ut voluptatum qui nobis!</p>
+        <p class="azul">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cum sunt dolor hic autem consequuntur optio reiciendis recusandae pariatur tempora, quia rem assumenda eos, nostrum sit sed ut voluptatum qui nobis!</p>
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cum sunt dolor hic autem consequuntur optio reiciendis recusandae pariatur tempora, quia rem assumenda eos, nostrum sit sed ut voluptatum qui nobis!</p>
+        
+    </body>
+
+    </html>

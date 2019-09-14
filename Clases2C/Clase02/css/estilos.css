@@ -1,0 +1,48 @@
+/*Selector bytagname*/
+label{
+    color: blueviolet;
+}
+
+p,h1{
+    background-color: blueviolet;
+    text-align:  center;
+}
+
+
+p,#h1{
+    background-color: blueviolet;
+    text-align:  center;
+}
+/*Selector byid*/
+#miparrafo{
+    background-color: greenyellow;
+    margin-top: 50px;
+}
+
+/*Selector byClassName*/
+
+.rojos{
+    background-color: red;
+}
+
+.azul{
+    background-color:rgb(0,0,255);
+}
+
+#btnSaludar
+{
+    color: yellow;
+    background-color: black;
+}
+
+/******Aplica para todos los elementos del DOM*****/
+*{
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    height: 2000px; 
+    background: url("../img/alumno.bmp") no-repeat fixed center beige;
+
+}
