@@ -1,0 +1,72 @@
+
+body{
+    line-height: 2;
+    font-family: 'Lato',sans-serif;
+}
+table{
+    border-collapse: collapse;
+    width: 100%;
+    vertical-align: middle;
+    border-color: rgb(32, 159, 209);
+    top: 50px;
+}
+
+td{            
+    padding: 15px;
+}
+
+th{
+    font-size: 24px;
+    font-family: Arial, Helvetica, sans-serif;
+    height: 30px;
+    background-color: rgba(38, 207, 212, 0.808);
+    color:rgb(20, 22, 22);
+    border-color: rgb(240, 238, 238);
+    text-align: left;
+    padding: 10px;
+}
+
+tr:nth-child(even) {
+    background-color: #31b0eb;
+    border-color: #f2f2f2;
+}
+
+tr:hover {
+    background-color:rgb(194, 187, 187);
+    border-color: rgb(201, 191, 191);
+}
+
+.cerrar{
+    background-color: red;
+    top: 0%;
+    border: 2px;
+}
+
+.eliminar{
+    background-color: red;
+    text-align: center;
+    border: 2px;
+}
+
+.aceptar{
+    background-color: rgb(103, 179, 103);
+    text-align: center;
+    border: 2px;
+}
+
+.formulario{
+    position:absolute;
+	left:0; right:0;
+	top:0; bottom:0;
+	margin:auto;
+	background-color: white;
+	border: 2px outset black;
+	border-style: groove;
+	padding: 20px;
+	animation-name: fadeIn;
+    animation-duration: 1s;
+    width: -webkit-fit-content;
+    height: -webkit-fit-content;
+    width: -moz-fit-content;
+    height: -moz-fit-content;
+}

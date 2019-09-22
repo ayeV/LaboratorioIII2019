@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="index.css">
+    <script src="index.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+        <table id="tabla">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Fecha</th>
+                    <th>Telefono</th>
+                    <th hidden>id</th>
+                </tr>
+            </thead>
+            <tbody id="tbody">
+            </tbody>
+        </table>
+    </div>
+
+    <div id="formulario" class="formulario" hidden>
+            <input id="idPersona" hidden>
+        <label for="nombre">Nombre</label>
+        <input type="text" name="nombre" id="inputNombre">
+        <br>
+        <label for="apellido">Apellido</label>
+        <input type="text" name="apellido" id="inputApellido">
+        <br>
+        <label for="fecha">Fecha</label>
+        <input type="date" name="fecha" id="inputFecha">
+        <br>
+        <label for="telefono">Telefono</label>
+        <input type="number" name="telefono" id="inputTelefono">
+        <br>
+        <button id="btnEliminar" class="eliminar">Eliminar</button>
+        <button id="btnAceptar" class="aceptar">Aceptar</button>
+        <button id="btnCerrar" class="cerrar">x</button>
+    </div>
+</body>
+
+</html>
