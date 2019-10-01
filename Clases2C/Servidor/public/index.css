@@ -44,8 +44,20 @@ fieldset
 .divCargarPersona
 {
     align-content: center;
-    border-color: black;
-    margin: 2px;
+    background-color: antiquewhite;
+    padding: 2px;
+    margin: auto;
+    position: absolute;
     display: inline-block;
     text-align: center;
+    border-width: 1px;
+    border-style: solid;
+    border-color: black;
+
+}
+
+label
+{
+    text-align: left;
+    
 }
