@@ -2,16 +2,16 @@
 var xhr = new XMLHttpRequest();
 window.addEventListener('load', () => {
     document.getElementById("btnTraer").addEventListener('click', traerPersonas);
-    document.getElementById("btnAltaPersona").addEventListener('click',abrirFormulario);
-    document.getElementById("btnGuardar").addEventListener('click',altaPersona);
+    document.getElementById("btnAltaPersona").addEventListener('click', abrirFormulario);
+    document.getElementById("btnGuardar").addEventListener('click', altaPersona);
 });
 
 function crearTabla(array) {
     debugger;
     var tabla = document.createElement('table');
-    tabla.setAttribute('class','tabla');
+    tabla.setAttribute('class', 'tabla');
     let cabecera = document.createElement('tr');
- 
+
     for (atributo in array[0]) {
         let th = document.createElement('th');
         th.textContent = atributo;
@@ -30,18 +30,17 @@ function crearTabla(array) {
         }
         tabla.appendChild(fila);
 
-       celda.addEventListener('dbclick',abrirFormulario);
+        celda.addEventListener('dbclick', abrirFormulario);
 
     }
     return tabla;
 
 }
 
-function abrirFormulario()
-{
+function abrirFormulario() {
     debugger;
     var form = document.getElementById('divCargarPersona');
-    if(form.hidden)
+    if (form.hidden)
         form.hidden = false;
     else
         form.hidden = true;
@@ -50,7 +49,7 @@ function abrirFormulario()
 function traerPersonas() {
 
     xhr.onreadystatechange = callback;
-    xhr.open('GET','http://localhost:3000/traerPersonas',true);
+    xhr.open('GET', 'http://localhost:3000/traerPersonas', true);
     xhr.send();
 
 }
@@ -60,19 +59,17 @@ function callback() {
     let div = document.getElementById('info');
     if (xhr.readyState == 4) {
         if (xhr.status == 200) {
-          
+
             let lista = JSON.parse(xhr.responseText);
             div.appendChild(crearTabla(lista));
             spin.hidden = true;
         }
-        else
-        {
-            console.log("Error " + xhr.status + "--" + xhr.statusText);    
+        else {
+            console.log("Error " + xhr.status + "--" + xhr.statusText);
         }
     }
-    else
-    {
-      spin.hidden = false;
+    else {
+        spin.hidden = false;
     }
 
 }
@@ -104,35 +101,50 @@ function traerDatosDelForm() {
     let male = document.getElementById('rdoMale');
     let female = document.getElementById('rdoFemale');
     let gender = '';
-    if(male.checked)
+    if (male.checked)
         gender = male.value;
     else
         gender = female.value;
-    validarDatos(first_name,last_name,email,gender);
-    var obj = new Persona(first_name,last_name,email,gender);
+    validarDatos(first_name, last_name, email, gender);
+    var obj = new Persona(first_name, last_name, email, gender);
     return obj;
 
 }
 
-function validarDatos(nombre,apellido,email,genero)
-{
-   if(nombre == "" || nombre == undefined || nombre == null || nombre == "null")
-     alert("Debe ingresar un nombre");
+function validarDatos(nombre, apellido, email, genero) {
+    if (nombre == "" || nombre == undefined || nombre == null || nombre == "null")
+        alert("Debe ingresar un nombre");
 
 }
 
-function bajaPersona()
-{
+function eliminar() {
 
-    xhr.onreadystatechange =  callbackEliminar;
-    xhr.open('DELETE', 'http://localhost:3000/bajaPersona', true);
+    let persona = traerDatosDelForm();
+    xhr.onreadystatechange = callbackEliminar;
+    xhr.open('POST', 'http://localhost:3000/bajaPersona', true);
     xhr.setRequestHeader('Content-type', 'application/json');
-   // xhr.send(JSON.stringify(persona));
+    xhr.send(JSON.stringify(persona));
 }
 
-function callbackEliminar()
+function modificar() {
+
+    let persona = traerDatosDelForm();
+    xhr.onreadystatechange = callbackModificar;
+    xhr.open('POST', 'http://localhost:3000/modificarPersona', true);
+    xhr.setRequestHeader('Content-type', 'application/json');
+    xhr.send(JSON.stringify(persona));
+}
+
+function callbackModificar()
 {
+    if(xhr.readyState == 4 && xhr.status == 200)
+    {
+
+    }
+}
+
+function callbackEliminar() {
     if (xhr.readyState == 4 && xhr.status == 200) {
-        
+
     }
 }
