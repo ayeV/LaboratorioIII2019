@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="persona.js"></script>
     <script src="script.js"></script>
     <link rel="stylesheet" href="index.css">
     <title>Document</title>
@@ -12,24 +13,25 @@
 
 <body>
     <button id="btnTraer">Traer personas</button>
+    <button id="btnAltaPersona">Crear persona</button>
     <div id="info">
         <img src="760.gif" id="spinner" hidden />
       
-        <div id="divCargarPersona" class="divCargarPersona" hidden>
+        <div id="divCargarPersona" class="divCargarPersona" hidden = true>
 
             <label for="txtNombre">Nombre</label><br>
             <input type="text" name="nombre" id="txtNombre"><br>
             <label for="txtApellido">Apellido</label><br>
-            <input type="text" name="apellido" id="txtApellido'"><br>
+            <input type="text" name="apellido" id="txtApellido"><br>
             <label for="txtEmail">Email</label><br>
-            <input type="text" name="email" id="txtEmail'"><br>
+            <input type="text" name="email" id="txtEmail"><br>
             <label for="txtGenero">Genero</label><br>
             <fieldset id="genero">
                 <input type="radio" name="gender" value="male" id="rdoMale"> Masculino<br>
-                <input type="radio" name="gender" value="female" id="rdFemale"> Femenino<br>
+                <input type="radio" name="gender" value="female" id="rdoFemale"> Femenino<br>
             </fieldset>
 
-            <input type="submit" value="Guardar">
+            <input type="submit" id="btnGuardar" value="Guardar">
 
 
         </div>

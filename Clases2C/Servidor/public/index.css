@@ -34,3 +34,18 @@ th{
     text-align: left;
     padding: 10px;
 }
+
+fieldset
+{
+    align-self: auto;
+    border-color: pink;
+}
+
+.divCargarPersona
+{
+    align-content: center;
+    border-color: black;
+    margin: 2px;
+    display: inline-block;
+    text-align: center;
+}

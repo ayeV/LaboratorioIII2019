@@ -1,7 +1,7 @@
 function Persona(nombre,apellido,email,genero)
 {
-    this.nombre = nombre;
-    this.apellido = apellido;
+    this.first_name = nombre;
+    this.last_name = apellido;
     this.email = email;
-    this.genero =genero;
+    this.gender =genero;
 }

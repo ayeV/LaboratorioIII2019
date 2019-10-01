@@ -2,6 +2,8 @@
 var xhr = new XMLHttpRequest();
 window.addEventListener('load', () => {
     document.getElementById("btnTraer").addEventListener('click', traerPersonas);
+    document.getElementById("btnAltaPersona").addEventListener('click',abrirFormulario);
+    document.getElementById("btnGuardar").addEventListener('click',altaPersona);
 });
 
 function crearTabla(array) {
@@ -35,10 +37,14 @@ function crearTabla(array) {
 
 }
 
-function abrirFormulario ()
+function abrirFormulario()
 {
+    debugger;
     var form = document.getElementById('divCargarPersona');
-    form.hidden = false;
+    if(form.hidden)
+        form.hidden = false;
+    else
+        form.hidden = true;
 }
 
 function traerPersonas() {
@@ -46,8 +52,6 @@ function traerPersonas() {
     xhr.onreadystatechange = callback;
     xhr.open('GET','http://localhost:3000/traerPersonas',true);
     xhr.send();
-
-
 
 }
 
@@ -65,12 +69,9 @@ function callback() {
         {
             console.log("Error " + xhr.status + "--" + xhr.statusText);    
         }
-        
-
     }
     else
     {
-      
       spin.hidden = false;
     }
 
@@ -79,6 +80,7 @@ function callback() {
 
 
 function altaPersona(e) {
+    debugger;
     var form = document.getElementById('divCargarPersona');
     form.hidden = false;
     e.preventDefault();
@@ -100,10 +102,10 @@ function traerDatosDelForm() {
     let first_name = document.getElementById('txtNombre').value;
     let last_name = document.getElementById('txtApellido').value;
     let email = document.getElementById('txtEmail').value;
-    let male = document.getElementById('rdoMale').checked;
-    let female = document.getElementById('rdoFemale').checked;
+    let male = document.getElementById('rdoMale');
+    let female = document.getElementById('rdoFemale');
     let gender = '';
-    if(male)
+    if(male.checked)
         gender = male.value;
     else
         gender = female.value;
@@ -112,3 +114,5 @@ function traerDatosDelForm() {
     return obj;
 
 }
+
+
