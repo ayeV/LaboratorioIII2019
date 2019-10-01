@@ -86,7 +86,6 @@ function altaPersona(e) {
     e.preventDefault();
     let persona = traerDatosDelForm();
 
-    let xhr = new XMLHttpRequest();
     xhr.onreadystatechange = () => {
         if (xhr.readyState == 4 && xhr.status == 200) {
             //console.log(JSON.parse(xhr.responseText));
@@ -109,10 +108,31 @@ function traerDatosDelForm() {
         gender = male.value;
     else
         gender = female.value;
-
+    validarDatos(first_name,last_name,email,gender);
     var obj = new Persona(first_name,last_name,email,gender);
     return obj;
 
 }
 
+function validarDatos(nombre,apellido,email,genero)
+{
+   if(nombre == "" || nombre == undefined || nombre == null || nombre == "null")
+     alert("Debe ingresar un nombre");
 
+}
+
+function bajaPersona()
+{
+
+    xhr.onreadystatechange =  callbackEliminar;
+    xhr.open('DELETE', 'http://localhost:3000/bajaPersona', true);
+    xhr.setRequestHeader('Content-type', 'application/json');
+   // xhr.send(JSON.stringify(persona));
+}
+
+function callbackEliminar()
+{
+    if (xhr.readyState == 4 && xhr.status == 200) {
+        
+    }
+}
