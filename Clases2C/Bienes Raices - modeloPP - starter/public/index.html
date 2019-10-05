@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./css/styles.css">
+    <script src="./js/anuncio.js"></script>
+    <script src="./js/tableHelper.js"></script>
+    <script src="./js/index.js"></script>
+
+</head>
+
+<body>
+
+    <form id="divAnuncio">
+        <input type="text" name="id" id="txtId" hidden><br>
+        <label for="txtTitulo">Titulo</label><br>
+        <input type="text" name="titulo" id="txtTitulo"><br>
+        <label for="txtTransaccion">Transaccion</label><br>
+        <input type="text" name="transaccion" id="txtTransaccion"><br>
+        <label for="txtDescripcion">Descipcion</label><br>
+        <textarea rows="4" cols="50" name="descripcion" id="txtDescripcion"></textarea><br>
+        <label for="txtPrecio">Precio</label><br>
+        <input type="number" name="precio" id="txtPrecio" min="1" step="any" $$$><br>
+        <label for="txtCantBaños">Cant baños</label><br>
+        <input type="number" name="baños" id="txtCantBaños"><br>
+        <label for="txtCantEstacionamiento">Cant estacionamientos</label><br>
+        <input type="number" name="estacionamientos" id="txtCantEstacionamiento"><br>
+        <label for="txtCantDormitorio">Cant dormitorios</label><br>
+        <input type="number" name="dormitorios" id="txtCantDormitorio"><br>
+
+
+    </form>
+    <button id="btnGuardar" class="guardar">Guardar</button>
+    <button id="btnEliminar" class="eliminar">Eliminar</button>
+    <button id="btnCancelar" class="cancelar">Cancelar</button><br>
+
+
+    <br>
+    <img src="./img/831.gif" id="spin"><br>
+    <div id="divTabla">
+       
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,63 @@
+.tabla{
+    width: 100%;
+    border-collapse: collapse;
+    border: 2px;
+    vertical-align: middle;
+    border-color: rgb(32, 159, 209);
+    top: 50px;
+    font: bold;
+    
+}
+
+tr:nth-child(even) {
+    background-color: #31b0eb;
+    border-color: #f2f2f2;
+}
+
+tr:hover {
+    background-color:rgb(194, 187, 187);
+    border-color: rgb(201, 191, 191);
+}
+
+
+td{            
+    padding: 15px;
+}
+
+th{
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    height: 30px;
+    background-color: rgba(38, 207, 212, 0.808);
+    color:rgb(20, 22, 22);
+    border-color: rgb(240, 238, 238);
+    text-align: left;
+    padding: 10px;
+}
+
+fieldset
+{
+    align-self: auto;
+    border-color: pink;
+}
+
+.divAnuncio
+{
+    align-content: center;
+    background-color: antiquewhite;
+    padding: 2px;
+    margin: auto;
+    position: absolute;
+    display: inline-block;
+    text-align: center;
+    border-width: 1px;
+    border-style: solid;
+    border-color: black;
+
+}
+
+label
+{
+    text-align: left;
+    
+}
