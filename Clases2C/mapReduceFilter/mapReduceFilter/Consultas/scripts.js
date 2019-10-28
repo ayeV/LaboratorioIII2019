@@ -52,9 +52,13 @@ console.log(soluciones.usuarioMasGrande(data));
 // Retornar el promedio de edad de los usuarios (number)
 
 soluciones.promedio = function(usuarios){
-  
+  let suma;
+  let acumEdad =  usuarios.map(e=>e.edad).reduce((suma,edad)=>suma+edad,0);
+  let cantidad = usuarios.length
 
-    return (acumEdad /cantidad).toFixed(2);
+  return (acumEdad /cantidad).toFixed(2);
+
+
 }
 
 //console.log("Promedio edad usuarios " + soluciones.promedio(data));
@@ -62,16 +66,24 @@ soluciones.promedio = function(usuarios){
 // Retornar el promedio de edad de los usuarios hombres (number)
 
 soluciones.promedioVarones = function(usuarios){
-   
+ let suma;
+  let acumEdad = usuarios.filter(x=>x.genero == 'Male').map(e=>e.edad).reduce((suma,edad)=>suma+edad,0);
+  let cantidad = usuarios.length
+
+  return (acumEdad /cantidad).toFixed(2);
    
 }
 
-//console.log("Promedio edad Varones " + soluciones.promedioVarones(data));
+console.log("Promedio edad Varones " + soluciones.promedioVarones(data));
 
  // Retornar el promedio de edad de los usuarios mujeres (number)
 
 soluciones.promedioMujeres = function(usuarios){
-   
+    let suma;
+    let acumEdad = usuarios.filter(x=>x.genero == 'Female').map(e=>e.edad).reduce((suma,edad)=>suma+edad,0);
+    let cantidad = usuarios.length
+  
+    return (acumEdad /cantidad).toFixed(2);
 }
 
-//console.log("Promedio edad Mujeres " + soluciones.promedioMujeres(data));
+console.log("Promedio edad Mujeres " + soluciones.promedioMujeres(data));
