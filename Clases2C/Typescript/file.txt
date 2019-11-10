@@ -1,0 +1,5 @@
+tsc init
+tsc -w
+cancelar watch ctrl+c
+
+ -outfile output.js  hello.ts

@@ -1,0 +1,28 @@
+.border1
+{
+    background-color: #aaaa;
+    border: 1px solid black;
+    height: 50px;
+}
+
+.border2
+{
+    background-color: #bbbb;
+    border: 1px solid black;
+    height: 50px;
+}
+
+.border3
+{
+    background-color: #cccc;
+    border: 1px solid black;
+    height: 50px;
+}
+
+
+.border4
+{
+    background-color: #dddd;
+    border: 1px solid black;
+    height: 50px;
+}
