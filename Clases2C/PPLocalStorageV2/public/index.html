@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="./js/jquery.js"></script>
+    <script src="./js/bootstrap.js"></script>
+    <link rel="stylesheet" href="./css/bootstrap.css">
+    <link rel="stylesheet" href="./css/styles.css">
+    <script src="./js/anuncio.js"></script>
+    <script src="./js/dispatcher.js"></script>
+    <script src="./js/tableHelper.js"></script>
+    <script src="./js/index.js"></script>
+
+</head>
+
+<body>
+    <div class="container-fluid">
+        <form id="divAnuncio">
+            <input type="text" name="id" id="txtId" hidden><br>
+            <div class="form-group row">
+                <label for="txtTitulo" class="col-md-2 col-form-label">Titulo</label><br>
+                <div class="col-md-10">
+                    <input type="text" name="titulo" id="txtTitulo" class="form-control"><br>
+                </div>
+
+            </div>
+
+            <div class="form-group row">
+                <label for="txtTransaccion" class="col-md-2 col-form-label">Transaccion</label>
+
+            </div>
+
+
+            <div class="form-group row">
+                <div class="form-check col-sm-2 offset-sm-2">
+                    <input type="radio" name="transaccion" id="rdoAlquiler" value="alquiler" class="form-check-input">
+                    <label for="rdoAlquiler" class="form-check-label">Alquiler</label>
+                </div>
+
+            </div>
+
+            <div class="form-group row">
+                <div class="form-check col-sm-2 offset-sm-2">
+                    <input type="radio" name="transaccion" id="rdoVenta" value="venta" class="form-check-input">
+                    <label for="rdoVenta" class="form-check-label">Venta</label>
+                </div>
+
+            </div>
+
+            <div class="form-group row">
+                <label for="txtDescripcion" class="col-md-2 col-form-label">Descripcion</label>
+                <div class="col-md-10">
+                    <textarea rows="4" cols="50" name="descripcion" id="txtDescripcion"
+                        class="form-control"></textarea><br>
+
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="txtPrecio" class="col-md-2 col-form-label">Precio</label><br>
+                <div class="col-md-10">
+                    <input type="number" name="precio" id="txtPrecio" min="1" step="any" $$$ class="form-control"><br>
+
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="txtCantBaños" class="col-md-2 col-form-label">Cant baños</label><br>
+                <div class="col-md-10">
+                    <input type="number" name="baños" id="txtCantBaños" class="form-control"><br>
+
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="txtCantEstacionamiento" class="col-md-2 col-form-label">Cant estacionamientos</label><br>
+                <div class="col-md-10">
+                    <input type="number" name="estacionamientos" id="txtCantEstacionamiento" class="form-control"><br>
+                </div>
+
+            </div>
+
+
+            <div class="form-group row">
+                <label for="txtCantDormitorio" class="col-md-2 col-form-label">Cant dormitorios</label><br>
+                <div class="col-md-10">
+                    <input type="number" name="dormitorios" id="txtCantDormitorio" class="form-control"><br>
+
+                </div>
+            </div>
+
+
+            <div class="form-group row">
+                <div class="col-md">
+                    <button id="btnGuardar" class="btn btn-primary">Guardar</button>
+                </div>
+                <div class="col-md">
+                    <button id="btnEliminar" class="btn btn-danger">Eliminar</button>
+
+                </div>
+                <div class="col-md">
+                    <button id="btnCancelar" class="btn btn-secondary">Cancelar</button>
+
+                </div>
+            </div>
+
+
+
+
+        </form>
+    </div>
+
+
+
+    <br>
+    <div class="spinner-border text-success" role="status" id="spin">
+        <span class="sr-only">Loading...</span>
+      </div>
+    <div id="divTabla" class="container-fluid">
+
+    </div>
+</body>
+
+</html>
